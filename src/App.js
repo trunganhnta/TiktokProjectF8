@@ -1,35 +1,39 @@
-import { useReducer } from "react";
-import "./App.css";
-import Button from "~/components/Button";
+import { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { DefaultLayout } from './components/Layout';
+import { publicRoutes } from './components/routes';
 
-const initial = 0;
-
-// action
-const UP_ACTION = "up";
-const DOWN_ACTION = "down";
-
-// reducer
-const reducer = (state, action) => {
-  switch (action) {
-    case UP_ACTION: {
-      return state + 1;
-    }
-    case DOWN_ACTION:
-      return state - 1;
-    default:
-      console.log("error");
-  }
-};
 function App() {
-  const [count, dispatch] = useReducer(reducer, initial);
-  return (
-    <div className="App">
-      <h1>{count}</h1>
-      <button onClick={() => dispatch(UP_ACTION)}>Up</button>
-      <button onClick={() => dispatch(DOWN_ACTION)}>Down</button>
-      <Button />
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    {publicRoutes.map((route, index) => {
+                        const Page = route.component;
+
+                        let Layout = DefaultLayout;
+                        if (route.layout) {
+                            Layout = route.layout;
+                        } else if (route.layout === null) {
+                            Layout = Fragment;
+                        }
+
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
