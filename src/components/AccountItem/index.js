@@ -14,11 +14,11 @@ function AccountItem() {
                 alt="hihi"
             />
             <div className={cx('info')}>
-                <p className={cx('name')}>
+                <h4 className={cx('name')}>
                     <span>Nguyen Trung Anh</span>
-                    <FontAwesomeIcon icon={faCheckCircle} />
-                </p>
-                <p className={cx('description-name')}>sdas</p>
+                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                </h4>
+                <span className={cx('description-name')}>Nguyen Trung Anh</span>
             </div>
         </div>
     );

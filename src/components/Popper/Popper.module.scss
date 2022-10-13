@@ -8,4 +8,12 @@
     max-height: min((100vh - 96px) - 60px, 734px);
     overflow: hidden auto;
     min-height: 100px;
+
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #f1f1f2;
+        border-radius: 16px;
+    }
 }
