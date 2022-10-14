@@ -91,7 +91,31 @@
     }
 }
 .search-title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
+    padding-left: 5px;
+}
+//actions
+.actions {
+    display: flex;
+    align-items: center;
+}
+.more-btn {
+    font-size: 2rem;
+    margin-left: 28px;
+    background-color: transparent;
+    padding: 5px;
+}
+.action-btn {
+    background: transparent;
+    font-size: 2.2rem;
+    padding: 4px 12px;
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px;
 }
