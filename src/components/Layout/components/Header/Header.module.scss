@@ -96,6 +96,7 @@
     color: rgba(22, 24, 35, 0.5);
     padding-left: 5px;
 }
+//actions
 .actions {
     display: flex;
     align-items: center;
@@ -105,4 +106,16 @@
     margin-left: 28px;
     background-color: transparent;
     padding: 5px;
+}
+.action-btn {
+    background: transparent;
+    font-size: 2.2rem;
+    padding: 4px 12px;
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px;
 }
