@@ -25,7 +25,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'ProximaNova', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -39,6 +39,7 @@ input,
 [tabindex] {
     outline: none;
     border: none;
+    font-family: 'ProximaNova';
 }
 
 a[href] {
@@ -48,7 +49,34 @@ a[href] {
 .btn {
     cursor: pointer;
 }
+//font embedded
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Semibold.woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: sofiapro;
+    src: url('/assets/fonts/sofiapro-bold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: sofiapro;
+    src: url('/assets/fonts/sofiapro-semibold.otf');
+    font-weight: 700;
+}
 
+//custom tippy tooltip
 body {
     .tippy-box {
         border-radius: 8px;
