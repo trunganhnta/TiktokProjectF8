@@ -1,7 +1,5 @@
 import { faUber } from '@fortawesome/free-brands-svg-icons';
-import { faMessage } from '@fortawesome/free-regular-svg-icons';
 import {
-    faArrowUpFromBracket,
     faCircleQuestion,
     faCircleXmark,
     faCoins,
@@ -23,6 +21,8 @@ import 'tippy.js/dist/tippy.css';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import { MessageIcon, SendMessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Menu from '~/components/Popper/Menu';
 import styles from './Header.module.scss';
@@ -131,12 +131,15 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
-                                <button className={cx('action-btn', 'btn')}>
-                                    <FontAwesomeIcon icon={faArrowUpFromBracket} />
-                                </button>
+                                <Button outline className={cx('btn-upload')}>
+                                    <UploadIcon /> <span>Upload</span>
+                                </Button>
                             </Tippy>
                             <button className={cx('action-btn', 'btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <SendMessageIcon />
+                            </button>
+                            <button className={cx('action-btn', 'btn')}>
+                                <MessageIcon />
                             </button>
                         </>
                     ) : (
@@ -149,10 +152,11 @@ function Header() {
                     )}
                     <Menu items={!currentUser ? MENU_ITEMS : USER_MENU_ITEMS} onChange={handleChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://atomiks.github.io/tippyjs/static/logo-ebc385458e03fdb24af078536af88065.svg"
                                 alt="Nguyen Trung Anh"
                                 className={cx('user-avatar', 'btn')}
+                                fallback="https://tinypng.com/images/social/website.jpg"
                             />
                         ) : (
                             <button className={cx('more-btn', 'btn')}>
