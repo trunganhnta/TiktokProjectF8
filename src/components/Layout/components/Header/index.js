@@ -1,31 +1,27 @@
 import { faUber } from '@fortawesome/free-brands-svg-icons';
 import {
     faCircleQuestion,
-    faCircleXmark,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
     faRightToBracket,
     faSignOut,
-    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import { MessageIcon, SendMessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Search from '~/components/Layout/components/Search';
 import Menu from '~/components/Popper/Menu';
 import styles from './Header.module.scss';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -82,51 +78,20 @@ const USER_MENU_ITEMS = [
         separate: true,
     },
 ];
+const handleChange = (menuItem) => {
+    console.log(menuItem);
+};
 
 function Header() {
     const currentUser = true;
-    const [arrResultSearch, setArrResultSearch] = useState([]);
-    setTimeout(() => {
-        setArrResultSearch([1, 2, 3]);
-    }, 2000);
-
-    const handleChange = (menuItem) => {
-        console.log(menuItem);
-    };
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="TikTok" />
-                </div>
-                <HeadlessTippy
-                    interactive
-                    visible={arrResultSearch.length < 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                My tippy box
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input type="text" placeholder="Search account or videos" spellCheck={false} />
-                        <button className={cx('clear-btn')}>
-                            <FontAwesomeIcon className="btn" icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={cx('btn ', 'loading')} icon={faSpinner} />
-                        <button className={cx('btn', 'search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadlessTippy>
+                </Link>
+                {/* search */}
+                <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>

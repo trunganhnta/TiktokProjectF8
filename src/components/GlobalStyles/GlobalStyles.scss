@@ -7,6 +7,7 @@
     --black: #000;
     --text-color: #333;
     --white: #fff;
+    --font-family: 'ProximaNova', sans-serif;
 
     //default layout
     --default-layout-width: 1150px;
@@ -25,7 +26,7 @@ html {
 }
 
 body {
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -39,7 +40,7 @@ input,
 [tabindex] {
     outline: none;
     border: none;
-    font-family: 'ProximaNova';
+    font-family: var(--font-family);
 }
 
 a[href] {

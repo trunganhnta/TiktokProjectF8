@@ -22,6 +22,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    span {
+        margin-right: 0.8rem;
+    }
 }
 .check {
     margin-left: 8px;
